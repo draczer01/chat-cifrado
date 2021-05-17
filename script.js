@@ -2,7 +2,7 @@ const socket = io('http://localhost:3000')
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
-
+var example = true; //habilitar o deshabilitar el modo demo
 function encrypt(message = '', key = ''){//funcion para encriptar el mensaje
   var message = CryptoJS.AES.encrypt(message, key);// llama a la funcion encrypt de la libreria CryptoJS dentro de el algoritmo AES y le pasa el mensaje y la contraseña
   return message.toString();//regresa el mensaje encriptado
@@ -35,9 +35,17 @@ socket.on('user-disconnected', name => {
 
 messageForm.addEventListener('submit', e => {
   e.preventDefault()
+  const message2 = messageInput.value
   messageInput.value = encrypt(messageInput.value, key); //encriptar el mensaje
   const message = messageInput.value
-  appendMessage(`Tu: ${message}`)
+  if (example)
+  {
+    appendMessage(`Tu: ${message}`)
+  }
+  else{
+    appendMessage(`Tu: ${message2}`)
+  }
+  
   socket.emit('send-chat-message', message)
   messageInput.value = ''
 })

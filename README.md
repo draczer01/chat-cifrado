@@ -23,3 +23,6 @@ para usarse es muy sensillo solo hay que seguir los siguientes pasos:
 9.- repetir los 2 pasos anteriores utilizando la misma contraseña
 
 10.- cuando se mande un mensaje se podra apreciar que el que mando el mensaje lo vera cifrado (esto es como demostracion de que el mensaje se ha cifrado) el servicor mandara el mensaje a todos los usuarios pero solo el que haya puesto la misma contraseña que el que lo mando podra leer el mensaje, el resto solo podra ver un mensaje vacio y si intenta leer los datos recibidos solo obtendra el texto cifrado
+
+
+Nota: si prefiere que el usuario que manda el mensaje vea el dexto decifrado como en un chat normal basta con cambiar la linea 5 del archivo script.js de true a false
